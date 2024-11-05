@@ -22,7 +22,6 @@
    continue-list = <UNDERSCORE MINUS BACKSPACE>;
 };
 
-/*
 / {
 
     combos {
@@ -41,7 +40,6 @@
     };
 };
 
-*/
 
 / {
     keymap {
