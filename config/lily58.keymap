@@ -62,7 +62,7 @@
                                   &trans    &trans    &kp SPACE &mo SYM      &mo NUM  &kp RET   &trans    &trans
             >;
         };
-
+/*
         symbol_layer {
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                    |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS   |
@@ -152,5 +152,6 @@
 &none &none &none &none &none &none &none &none
             >;
         };
+*/
     };
 };
