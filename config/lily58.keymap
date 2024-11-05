@@ -60,7 +60,7 @@
                                   &trans    &trans    &kp SPACE &mo SYM      &mo NUM  &kp RET   &trans    &trans
             >;
         };
-/*
+
         symbol_layer {
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                    |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS   |
@@ -76,7 +76,7 @@
                                   &trans    &trans    &kp SPACE  &trans     &kp ESC  &kp RET   &trans    &trans
             >;
         };
-
+/*
         number_layer {
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                    |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS   |
