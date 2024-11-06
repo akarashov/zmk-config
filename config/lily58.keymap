@@ -46,6 +46,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                     |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |
 //  |  TRANS  |    Q    |    W    |    E    |    R    |    T    |                     |    Y    |    U    |    I    |    O    |    P    |  TRANS  |
@@ -62,6 +63,7 @@
         };
 
         symbol_layer {
+            display-name = "Symbols";
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                    |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS   |
 //  |  TRANS  |         |    \    |    %    |    $    |         |                    |         |    ^    |    {    |    }    |         |  TRANS   |
@@ -78,6 +80,7 @@
         };
 
         number_layer {
+            display-name = "Number";
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |                    |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS  |  TRANS   |
 //  |  TRANS  |         |    /    |    -    |    |    |         |                    |         |    7    |    8    |    9    |         |  TRANS   |
@@ -94,6 +97,7 @@
         };
 
         nav_layer {
+            display-name = "Navigations";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
@@ -110,6 +114,7 @@
         };
 
         fun_layer {
+            display-name = "Functional";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
 //  |         |         |         |         |         |         |                    |    F12  |    F7   |    F8   |    F9   |         |          |
@@ -126,15 +131,23 @@
         };
 
         danger_layer {
+            display-name = "Dangerous";
 // -----------------------------------------------------------------
 // |     |     |     |     |     | |     |     |     |     |     |
-// |     |     |     |     |     | |BTCLR| BLE | USB |RESET|     |
+// |     |     |     |     |     | |BTCLR|  BT | USB |RESET|     |
 // |     |     |     |     |     | |     |     |     |     |BOOTL|
 // |_!!!_|     |     |     |     | |     |     |     |     |_FUN_|
 //                   |     |     | |     |     |
+// &sys_reset - Resets the keyboard and re-runs the firmware flashed to the device
+// &bootloader - Resets the keyboard and puts it into bootloader mode, allowing you to flash new firmware
+// &bt - Completes a bluetooth action given on press, BT_CLR Behavior binding to clear the paired host for the selected profile
+// &out - Allows selecting whether output is sent to the USB or bluetooth connection when both are connected
+// OUT_USB Behavior binding to prefer sending keyboard output to USB
+// OUT_BLE Behavior binding to prefer sending keyboard output to the current bluetooth profile
+// OUT_TOG Behavior binding to toggle between preferring USB and BLE
             bindings = <
 &none &none &none &none &none &none &none &none &none &none &none &none
-&none &none &none &none &none &none &bt BT_CLR  &out OUT_BLE &out OUT_USB &reset &none &none
+&none &none &none &none &none &none &bt BT_CLR  &out OUT_BLE &out OUT_USB &sys_reset &none &none
 &none &none &none &none &none &none &none &none &none &none &bootloader &none
 &none &trans &none &none &none &none &none &none &none &none &none &none &trans &none
 &none &none &none &none &none &none &none &none
@@ -142,6 +155,7 @@
         };
 
         lock_layer {
+            display-name = "Lock";
             bindings = <
 &none &none &none &none &none &none &none &none &none &none &none &none
 &none &none &none &none &none &none &none &none &none &none &none &none
