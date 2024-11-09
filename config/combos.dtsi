@@ -38,12 +38,12 @@ ________________________________________________
                   */
 
 COMBO(tab, &kp TAB, 14 15) //
-COMBO(shift, &skq LSHFT, 46 47) //
-COMBO(ctrl, &sk LCTL, 38 39) //
 COMBO(backspace, &kp BSPC, 20 21) //
+COMBO_LONG(capsword, &caps_word, 29 30) //
+COMBO(ctrl, &sk LCTL, 38 39) //
+COMBO(shift, &skq LSHFT, 46 47) //
 COMBO(cmd, &sk LCMD, 52 53) // 
 COMBO(opt, &sk LALT, 54 55) //
-COMBO(q, &kp Q, 14 16) //
-COMBO(z, &kp Z, 19 21) //
-COMBO_LONG(capsword, &caps_word, 29 30) //
+COMBO(ins, &kp INS, 14 16) //
+COMBO(del, &kp DEL, 19 21) //
 LAYER_COMBO(lock, &tog LCK, 37 48 52 55, NORMAL_LAYERS LOCK_LAYER) //
