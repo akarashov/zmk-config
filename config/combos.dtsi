@@ -3,7 +3,8 @@
 compatible = "zmk,combos";
 #define LONG_TIMEOUT_MS 100
 #define NORMAL_LAYERS 0 1 2 3 4 5
-#define NAVI_LAER 3
+#define NORMAL_LAYER 0
+#define NAVI_LAYER 3
 #define LOCK_LAYER 6
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
@@ -48,4 +49,4 @@ COMBO(opt, &sk LALT, 54 55) //
 COMBO(ins, &kp INS, 14 16) //
 COMBO(del, &kp DEL, 19 21) //
 LAYER_COMBO(lock, &tog LCK, 37 48 52 55, NORMAL_LAYERS LOCK_LAYER) //
-LAYER_COMBO(lock, &tog NAV, 55 34, NORMAL_LAYERS NAVI_LAYER) //
+LAYER_COMBO(lock, &tog NAV, 55 34, NORMAL_LAYER NAVI_LAYER) //
