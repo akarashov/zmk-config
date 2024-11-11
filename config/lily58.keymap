@@ -65,16 +65,16 @@
             display-name = "Symbols";
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |         |    \    |    %    |    $    |         |                    |         |    ^    |    {    |    }    |         |          |
+//  |         |   ESC   |    \    |    %    |    $    |         |                    |         |    ^    |    {    |    }    |         |          |
 //  |         |  -FUN-  |    (    |    )    |    :    |    ?    |                    |    "    |    '    |    [    |    ]    |  TRANS  |          |
 //  |         |         |    `    |    @    |    &    |         |         ||         |         |    #    |    <    |    >    |  TRANS  |          |
-//                                |         |         |  TRANS  |  _SYM_  ||   ESC   |  TRANS  |         |         |
+//                                |         |         |  TRANS  |  _SYM_  ||         |  TRANS  |         |         |
             bindings = <
     &none     &none     &none     &none     &none     &none                           &none     &none     &none     &none     &none     &none   
-    &none     &none     &kp BSLH  &kp PRCNT &kp DLLR  &none                           &none     &kp CARET &kp LBRC  &kp RBRC  &none     &none 
+    &none     &kp ESC   &kp BSLH  &kp PRCNT &kp DLLR  &none                           &none     &kp CARET &kp LBRC  &kp RBRC  &none     &none 
     &none     &mo FUN   &kp LPAR  &kp RPAR  &kp COLON &kp QMARK                       &kp DQT   &kp SQT   &kp LBKT  &kp RBKT  &trans    &none 
     &none     &none     &kp GRAVE &kp AT    &kp AMPS  &none      &none      &none     &none     &kp HASH  &kp LT    &kp GT    &trans    &none 
-                                  &none     &none     &trans     &trans     &kp ESC   &trans    &none     &none 
+                                  &none     &none     &trans     &trans     &none     &trans    &none     &none 
             >;
         };
 
@@ -82,16 +82,16 @@
             display-name = "Number";
 //  -----------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |         |    /    |    -    |    |    |         |                    |    7    |    8    |    9    |         |         |          |
+//  |         |   ESC   |    /    |    -    |    |    |         |                    |    7    |    8    |    9    |         |         |          |
 //  |         |         |    ~    |    _    |    =    |         |                    |    4    |    5    |    6    |    :    |  TRANS  |          |
 //  |         |         |    *    |    +    |    !    |         |         ||         |    1    |    2    |    3    |    .    |  TRANS  |          |
-//                                |         |         |  TRANS  |   ESC   ||  _NUM_  |    0    |         |         |
+//                                |         |         |  TRANS  |         ||  _NUM_  |    0    |         |         |
             bindings = <
     &none     &none     &none     &none     &none     &none                          &none     &none     &none     &none     &none     &none   
-    &none     &none     &kp FSLH  &kp MINUS &kp PIPE  &none                          &kp N7    &kp N8    &kp N9    &none     &none     &none
+    &none     &kp ESC   &kp FSLH  &kp MINUS &kp PIPE  &none                          &kp N7    &kp N8    &kp N9    &none     &none     &none
     &none     &none     &kp TILDE &kp UNDER &kp EQUAL &none                          &kp N4    &kp N5    &kp N6    &kp COLON &trans    &none
     &none     &none     &kp STAR  &kp PLUS  &kp EXCL  &none      &none       &none   &kp N1    &kp N2    &kp N3    &kp DOT   &trans    &none
-                                  &none     &none     &trans     &kp ESC     &trans  &kp N0    &none     &none
+                                  &none     &none     &trans     &none       &trans  &kp N0    &none     &none
             >;
         };
 
@@ -99,13 +99,13 @@
             display-name = "Navi";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |         |         |  PSCRN  |         |         |                    |         |         |         |         |         |          |
+//  |         |   ESC   |         |  PSCRN  |         |         |                    |         |         |         |         |         |          |
 //  |         |   ALT   |  SHIFT  |   DEL   |   INS   |         |                    |   LEFT  |   DOWN  |    UP   |  RIGHT  |         |          |
 //  |         |         |    X    |    C    |    V    |         |         ||         |   HOME  | PAGE_DN | PAGE_UP |   END   |  TRANS  |          |
 //                                |         |         |  TRANS  |   CTRL  ||  _NUM_  |  TRANS  |         |         |
             bindings = <
     &none     &none     &none     &none     &none     &none                          &none     &none     &none     &none     &none      &none   
-    &none     &none     &none     &kp PSCRN &none     &none                          &none     &none     &none     &none     &none      &none
+    &none     &kp ESC   &none     &kp PSCRN &none     &none                          &none     &none     &none     &none     &none      &none
     &none     &kp LALT  &kp LSHFT &kp DEL   &kp INS   &none                          &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none      &none  
     &none     &none     &kp X     &kp C     &kp V     &none      &none      &none    &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans     &none
                                   &none     &none     &trans     &kp LCTRL  &trans   &trans    &none     &none
@@ -116,15 +116,15 @@
             display-name = "Functions";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |         |         |         |         |  TOGGLE |                    |    F12  |    F7   |    F8   |    F9   |         |          |
-//  |         |         |   BT2   |   BT1   |   BT0   |         |                    |    F11  |    F4   |    F5   |    F6   |         |          |
-//  |         |         |         |  BTCLR  |         |         |         ||         |    F10  |    F1   |    F2   |    F3   |  _FUN_  |          |
+//  |         |         |         |         |         |  TOGGLE |                    |     F7  |    F8   |    F9   |   F12   |         |          |
+//  |         |         |   BT2   |   BT1   |   BT0   |         |                    |     F4  |    F5   |    F6   |   F11   |         |          |
+//  |         |         |         |  BTCLR  |         |         |         ||         |     F1  |    F2   |    F3   |   F10   |  _FUN_  |          |
 //                                |         |         |  TRANS  |         ||         |   TRANS |         |         |
             bindings = <
     &none     &none     &none      &none    &none     &none                           &none     &none     &none     &none     &none      &none   
-    &none     &none     &none      &none    &none     &out OUT_TOG                    &kp F12   &kp F7    &kp F8    &kp F9    &none      &none
-    &none     &none     &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none                  &kp F11   &kp F4    &kp F5    &kp F6    &none      &none  
-    &none     &none     &none     &none     &bt BT_CLR &none &none           &none    &kp F10   &kp F1    &kp F2    &kp F3    &trans     &none
+    &none     &none     &none      &none    &none     &out OUT_TOG                    &kp F7   &kp F8    &kp F9    &kp F12    &none      &none
+    &none     &none     &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none                  &kp F4   &kp F5    &kp F6    &kp F11    &none      &none  
+    &none     &none     &none     &none     &bt BT_CLR &none &none           &none    &kp F1   &kp F2    &kp F3    &kp F10    &trans     &none
                                   &none     &none     &trans   &none         &none    &trans    &none     &none
             >;
         };
