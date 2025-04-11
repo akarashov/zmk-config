@@ -13,9 +13,11 @@
 #define CMK 0
 #define NAV 1
 
+/*
 &caps_word {
    continue-list = <UNDERSCORE MINUS BACKSPACE>;
 };
+*/
 
 / {
 
@@ -29,7 +31,7 @@
             label = "STICKY_KEY_QUICK_RELEASE";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <1000>;
+            release-after-ms = <100>;
             quick-release;
         };
     };
@@ -63,13 +65,13 @@
 //  |    F1   |   F2    |   F3    |    F4   |    F5   |    F6   |                    |   F7    |    F8   |    F9   |   F10   |   F11   |    F12   |
 //  |         |         |         |         |         |         |                    |         |         |   INS   |         | PSCRN   |          |
 //  |   BT0   |         |         |         |         |         |                    |   LEFT  |   DOWN  |    UP   |  RIGHT  |         |          |
-//  |         |         |         |         |         |         |   TOGLE ||  BTCLR  |   HOME  | PAGE_DN | PAGE_UP |   END   |         |          |
+//  |         |         |         |         |         |         |   TOGLE ||         |   HOME  | PAGE_DN | PAGE_UP |   END   |         |          |
 //                                |         |         |         |         ||         |  _NAV_  |         |         |
             bindings = <
     &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6                         &kp F7    &kp F8    &kp F9    &kp F10   &kp F11    &kp F12   
     &trans    &trans    &trans    &trans    &trans    &trans                         &trans    &trans    &kp INS   &trans    &kp PSCRN  &trans
     &bt BT_SEL 0 &trans &trans    &trans    &trans    &trans                         &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans     &trans  
-    &trans    &trans    &trans    &trans    &trans    &trans &out OUT_TOG &bt BT_CLR  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans     &none
+    &trans    &trans    &trans    &trans    &trans    &trans &out OUT_TOG     &trans &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans     &none
                            &trans    &trans    &trans      &trans                 &trans     &trans   &trans   &trans
             >;
         };
