@@ -2,10 +2,9 @@
 
 compatible = "zmk,combos";
 #define LONG_TIMEOUT_MS 100
-#define NORMAL_LAYERS 0 1 2 3 4 5
+#define NORMAL_LAYERS 0 1
 #define NORMAL_LAYER 0
-#define NAVI_LAYER 3
-#define LOCK_LAYER 6
+#define NAVI_LAYER 1
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
@@ -29,24 +28,16 @@ compatible = "zmk,combos";
     layers = <LAYERS>; \
   };
 
-/*           58 to 34 Keys
+/*           58 keys
 
-0  | 1  2  3  4  5           6  7  8  9  10 | 11
-________________________________________________
-12 | 13 [14 15] 16  17              18  19 [20 21] 22 | 23
-24 | 25  26 27  28 [29              30] 31  32 33  34 | 35
-36 | 37 [38 39] 40  41 | 42    43 | 44  45 [46 47] 48 | 49
-           50 51 | [52 53]||[54 55] | 56 57
+0   1   2  3   4   5               6   7   8  9   10  11
+12  13 [14 15] 16  17              18  19 [20 21] 22  23
+24  25  26 27  28  29              30  31  32 33  34  35
+36  37  38 39 40  41 | [42   [43] | 44  45  46 47  48  49
+             50 51 52 53  ||  54 [55] 56 57
                   */
 
 COMBO(tab, &kp TAB, 14 15) //
 COMBO(backspace, &kp BSPC, 20 21) //
-COMBO_LONG(capsword, &caps_word, 29 30) //
-COMBO(ctrl, &sk LCTL, 38 39) //
-COMBO(shift, &skq LSHFT, 46 47) //
-COMBO(cmd, &sk LCMD, 52 53) // 
-COMBO(opt, &sk LALT, 54 55) //
-COMBO(ins, &kp INS, 14 16) //
-COMBO(del, &kp DEL, 19 21) //
-LAYER_COMBO(lock, &tog LCK, 37 48 52 55, NORMAL_LAYERS LOCK_LAYER) //
-LAYER_COMBO(navi, &tog NAV, 55 34, NORMAL_LAYER NAVI_LAYER) //
+COMBO_LONG(capsword, &caps_word, 42 43) //
+LAYER_COMBO(navi, &tog NAV, 55 43, NORMAL_LAYER NAVI_LAYER) //
