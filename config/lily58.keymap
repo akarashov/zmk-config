@@ -11,11 +11,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define CMK 0
-#define SYM 1
-#define NUM 2
-#define NAV 3
-#define FUN 4
-#define LCK 5
+#define NAV 1
 
 &caps_word {
    continue-list = <UNDERSCORE MINUS BACKSPACE>;
@@ -61,83 +57,22 @@
             >;
         };
 
-        symbol_layer {
-            display-name = "Symbols";
-//  -----------------------------------------------------------------------------------------------------------------------------------------------
-//  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |   ESC   |    \    |    %    |    $    |         |                    |         |    ^    |    {    |    }    |         |          |
-//  |         |  -FUN-  |    (    |    )    |    :    |    ?    |                    |    "    |    '    |    [    |    ]    |  TRANS  |          |
-//  |         |         |    `    |    @    |    &    |         |         ||         |         |    #    |    <    |    >    |  TRANS  |          |
-//                                |         |         |  TRANS  |  _SYM_  ||         |  TRANS  |         |         |
-            bindings = <
-    &none     &none     &none     &none     &none     &none                           &none     &none     &none     &none     &none     &none   
-    &none     &kp ESC   &kp BSLH  &kp PRCNT &kp DLLR  &none                           &none     &kp CARET &kp LBRC  &kp RBRC  &none     &none 
-    &none     &mo FUN   &kp LPAR  &kp RPAR  &kp COLON &kp QMARK                       &kp DQT   &kp SQT   &kp LBKT  &kp RBKT  &trans    &none 
-    &none     &none     &kp GRAVE &kp AT    &kp AMPS  &none      &none      &none     &none     &kp HASH  &kp LT    &kp GT    &trans    &none 
-                                  &none     &none     &trans     &trans     &none     &trans    &none     &none 
-            >;
-        };
-
-        number_layer {
-            display-name = "Number";
-//  -----------------------------------------------------------------------------------------------------------------------------------------------
-//  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |   ESC   |    /    |    -    |    |    |         |                    |    7    |    8    |    9    |         |         |          |
-//  |         |         |    ~    |    _    |    =    |         |                    |    4    |    5    |    6    |    :    |  TRANS  |          |
-//  |         |         |    *    |    +    |    !    |         |         ||         |    1    |    2    |    3    |    .    |  TRANS  |          |
-//                                |         |         |  TRANS  |         ||  _NUM_  |    0    |         |         |
-            bindings = <
-    &none     &none     &none     &none     &none     &none                          &none     &none     &none     &none     &none     &none   
-    &none     &kp ESC   &kp FSLH  &kp MINUS &kp PIPE  &none                          &kp N7    &kp N8    &kp N9    &none     &none     &none
-    &none     &none     &kp TILDE &kp UNDER &kp EQUAL &none                          &kp N4    &kp N5    &kp N6    &kp COLON &trans    &none
-    &none     &none     &kp STAR  &kp PLUS  &kp EXCL  &none      &none       &none   &kp N1    &kp N2    &kp N3    &kp DOT   &trans    &none
-                                  &none     &none     &trans     &none       &trans  &kp N0    &none     &none
-            >;
-        };
-
         nav_layer {
             display-name = "Navi";
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |    F1   |   F2    |   F3    |    F4   |    F5   |    F6   |                    |   F7    |    F8   |    F9   |   F10   |   F11   |    F12   |
 //  |         |         |         |         |         |         |                    |         |         |   INS   |         | PSCRN   |          |
-//  |         |         |         |         |         |         |                    |   LEFT  |   DOWN  |    UP   |  RIGHT  |         |          |
-//  |         |         |         |         |         |         |         ||         |   HOME  | PAGE_DN | PAGE_UP |   END   |         |          |
+//  |   BT0   |         |         |         |         |         |                    |   LEFT  |   DOWN  |    UP   |  RIGHT  |         |          |
+//  |         |         |         |         |         |         |   TOGLE ||  BTCLR  |   HOME  | PAGE_DN | PAGE_UP |   END   |         |          |
 //                                |         |         |         |         ||         |  _NAV_  |         |         |
             bindings = <
     &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6                         &kp F7    &kp F8    &kp F9    &kp F10   &kp F11    &kp F12   
     &trans    &trans    &trans    &trans    &trans    &trans                         &trans    &trans    &kp INS   &trans    &kp PSCRN  &trans
-    &trans    &trans    &trans    &trans    &kp INS   &trans                         &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans     &trans  
-    &trans    &trans    &trans    &trans    &trans    &trans    &trans       &trans  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans     &none
+    &bt BT_SEL 0 &trans &trans    &trans    &trans    &trans                         &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans     &trans  
+    &trans    &trans    &trans    &trans    &trans    &trans &out OUT_TOG &bt BT_CLR  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &trans     &none
                            &trans    &trans    &trans      &trans                 &trans     &trans   &trans   &trans
             >;
         };
 
-        fun_layer {
-            display-name = "Functions";
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-//  |         |         |         |         |         |         |                    |         |         |         |         |         |          |
-//  |         |         |         |         |         |  TOGGLE |                    |     F7  |    F8   |    F9   |   F12   |         |          |
-//  |         |         |   BT2   |   BT1   |   BT0   |         |                    |     F4  |    F5   |    F6   |   F11   |         |          |
-//  |         |         |         |  BTCLR  |         |         |         ||         |     F1  |    F2   |    F3   |   F10   |  _FUN_  |          |
-//                                |         |         |  TRANS  |         ||         |   TRANS |         |         |
-            bindings = <
-    &none     &none     &none      &none    &none     &none                           &none     &none     &none     &none     &none      &none   
-    &none     &none     &none      &none    &none     &out OUT_TOG                    &kp F7   &kp F8    &kp F9    &kp F12    &none      &none
-    &none     &none     &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0 &none                  &kp F4   &kp F5    &kp F6    &kp F11    &none      &none  
-    &none     &none     &none     &none     &bt BT_CLR &none &none           &none    &kp F1   &kp F2    &kp F3    &kp F10    &trans     &none
-                                  &none     &none     &trans   &none         &none    &trans    &none     &none
-            >;
-        };
-
-        lock_layer {
-            display-name = "Lock";
-            bindings = <
-&none &none &none &none &none &none &none &none &none &none &none &none
-&none &none &none &none &none &none &none &none &none &none &none &none
-&none &none &none &none &none &none &none &none &none &none &none &none
-&none &none &none &none &none &none &none &none &none &none &none &none &none &none
-&none &none &none &none &none &none &none &none
-            >;
-        };
     };
 };
